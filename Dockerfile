@@ -1,4 +1,8 @@
-# Apache Jena 
+# Apache Jena Fuseki
+#
+# Fuseki is a SPARQL server. It provides REST-style SPARQL HTTP Update, 
+# SPARQL Query, and SPARQL Update using the SPARQL protocol over HTTP.
+#
 # BUILDAS sudo docker build -t jena .
 # RUNAS docker run --name jena -i -t -d -p 3030:3030 jena --mem /data
 #
