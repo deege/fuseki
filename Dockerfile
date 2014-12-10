@@ -12,9 +12,7 @@ ENV FUSEKI_VERSION 1.1.1
 # The version of Jena
 ENV JENA_VERSION 2.12.1
 
-ENV FUSEKI_INSTALL_DIR /opt/jena-fuseki
-
-
+# Install Curl
 RUN apt-get -y update
 RUN apt-get -y install curl
 
@@ -24,7 +22,7 @@ RUN cd /opt \
 | tar zx 
 
 # Make sure the distribution is available from a well-known place
-RUN ln -s /opt/jena-fuseki-${FUSEKI_VERSION} ${FUSEKI_INSTALL_DIR}
+RUN ln -s /opt/jena-fuseki-${FUSEKI_VERSION} /opt/jena-fuseki
 
 # Install Apache Jena
 RUN cd /opt \
@@ -35,11 +33,10 @@ RUN cd /opt \
 RUN ln -s /opt/apache-jena-${JENA_VERSION} /opt/jena
 
 # Make the server runnable
-RUN chmod +x ${FUSEKI_INSTALL_DIR}/fuseki-server ${FUSEKI_INSTALL_DIR}/s-*
+RUN chmod +x /opt/jena-fuseki/fuseki-server /opt/jena-fuseki/s-*
 
-
+# This runs on port 3030
 EXPOSE 3030
-# USER fuseki
 
 WORKDIR /opt/jena-fuseki
 ENTRYPOINT ["./fuseki-server"] 
