@@ -1,15 +1,28 @@
-This is the Dockerfile for a Apache Jena Fuseki SPARQL server.
+<p>This is the Dockerfile for a Apache Jena Fuseki SPARQL server.</p>
 
-Apache Jena is also installed on this server.  To build this:
+<p>Apache Jena is also installed on this server.  To build this:
 
+...
 docker build -t jena
+...
+</p>
 
+<p>
 Run this to get the help for the Fuseki server:
 
+...
 docker run --name jena -i -t -d -p 3030:3030 jena 
+...
+</p>
 
+</p>
 To start the server running with an in-memory server:
 
+...
 docker run --name jena -i -t -d -p 3030:3030 jena --mem /data
+...
+</p>
 
+<p>
 Other options for runnint the Fuseki server can be found at https://jena.apache.org/documentation/serving_data/index.html
+</p>
